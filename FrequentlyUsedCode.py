@@ -22,3 +22,19 @@ import urllib2
 response = urllib2.urlopen('http://python.org/')
 html = response.read()
 ----------------------------------------------------------------------------------------------
+#xml to dataframe python
+import xml.etree.ElementTree as ET
+import pandas as pd
+
+xml_data = open('/path/user_agents.xml').read()
+
+def xml2df(xml_data):
+    root = ET.XML(xml_data) # element tree
+    all_records = []
+    for i, child in enumerate(root):
+        record = {}
+        for subchild in child:
+            record[subchild.tag] = subchild.text
+            all_records.append(record)
+    return pd.DataFrame(all_records)
+----------------------------------------------------------------------------------------------

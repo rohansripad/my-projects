@@ -38,25 +38,3 @@ def xml2df(xml_data):
             all_records.append(record)
     return pd.DataFrame(all_records)
 ----------------------------------------------------------------------------------------------
-#Get Summary of a Text
-f = open("/Users/rattravanam/Desktop/Sample_text.txt","r")
-text = f.read()
-
-def get_paragraphs(text):
-    para = []
-    total_para = text.count('\n')
-    for i in range(total_para):
-        para.append(text[:text.find('\n')])
-        text = text[text.find('\n')+1:]
-    return para
-
-def summarize(text):
-    print(text)
-    parags = get_paragraphs(text)
-    summary = []
-    for i in parags:
-        sent_tokenize_list = sent_tokenize(i)
-        summary.append("* "+sent_tokenize_list[0]+". "+sent_tokenize_list[len(sent_tokenize_list)-1])
-    return summary
-
-summarize(text)

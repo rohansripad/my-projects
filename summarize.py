@@ -6,7 +6,6 @@ from nltk.tokenize import word_tokenize
 from __future__ import division
 from bs4 import BeautifulSoup
 
-reload(sys)
 sys.setdefaultencoding("utf-8")
 
 url = "http://www.latimes.com/local/california/la-me-lopez-commute-cherry-20171216-story.html"

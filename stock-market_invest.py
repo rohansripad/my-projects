@@ -18,6 +18,7 @@ data = pd.DataFrame(columns = ['Stock','%','Time-Period High','Cur. Price','Diff
 for stock in sp100:
     df = get_historical_data(stock, start=start, end=end, output_format='pandas')
     price = Stock(stock).get_close()
+    #price = Stock(stock).get_price()
     high = max(df['close'])
     perc = (high-price)/high
     data = data.append({'Stock':stock, '%':round(perc*100,1),'Time-Period High':round(high,2),'Cur. Price':round(price,2),'Diff': round(perc*high,2)},ignore_index=True)
